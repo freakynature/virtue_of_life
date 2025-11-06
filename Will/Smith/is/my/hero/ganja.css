@@ -1,18 +1,3 @@
-/* fonts */
-@\import "https://fonts.googleapis.com/css?family=ABeeZee|Advent+Pro|Amatic+SC|Saira+Condensed|Roboto+Condensed|Barlow+Condensed";
-/* anime covers */
-@\import "https://shishiohub.github.io/Covers/datatitlebefore.css";
-/* manga covers */
-@\import "https://malscraper.azurewebsites.net/covers/manga/karmashizzle/presets/datatitlebefore";
-/* main code */
-@\import "https://itszayeric.github.io/MAL/MAL%20CSS/Guchuko/AM-Guchuko.css";
-@\import "https://itszayeric.github.io/MAL/MAL%20CSS/Guchuko/Tags-Guchuko.css";
-@\import "https://itszayeric.github.io/MAL/MAL%20CSS/Guchuko/FontAwesome4Guchuko.css";
-
-
-====================================================================================
-
-
 /* =============================== *\
    Guchuko (6.2) by sunnysummerday
 \* =============================== */
@@ -3031,4 +3016,5 @@ background: no-repeat var(--i-grain-2) center 3px / 110px 26px !important;}
 
 /* HnK anime cover */
 .data.title [href^="/anime/35557/"]:before,
+
 .data.title [href^="/manga/44489/"]:before {background: url(https://i.imgur.com/kCRUx1I.jpeg) no-repeat 50% 50% / auto 140% !important;}
