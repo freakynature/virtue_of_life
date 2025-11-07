@@ -731,7 +731,7 @@ body.manga .data.tags a[href*="tag=100-"]:before {top: 192px;left: 118px;} /* Ma
 body.manga .data.tags a[href*="tag=100"]:after {
     background: var(--bg1);
     top: 197.5px;
-    left: 121.5px; }
+    left: 121.5px;}
 
 /* Hide '100' when sorted by MAL Score */
 body.anime[data-query*="17,"] a[href*="tag=100"]:before,
@@ -754,4 +754,3 @@ body.manga[data-query*="15,"] a[href*="tag=100"]:after
 	transform: rotate3d(0,0,1,10deg);
     filter: saturate(.8) hue-rotate(-25deg) drop-shadow(-1px 2px 2px rgba(5, 5, 5, .5));
 	z-index: 5;}
-	
