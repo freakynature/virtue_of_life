@@ -1,1 +1,1 @@
-![](/../main/shirogane%20kei%20cuteness.webp)
+![](/../main/Owari_da.webp)
