@@ -1,1 +1,1 @@
-![](/../main/Owari_da.webp)
+![](/../main/SKC.webp)
