@@ -54,7 +54,7 @@
     --ava: url(https://i.imgur.com/pUz9WQB.png) no-repeat center / 160px;
     --avatar-hover: "\f599";
     --normal-bold: bold;
-    --ao-overlay: url(https://raw.githubusercontent.com/freakynature/virtue_of_life/refs/heads/main/Will/Smith/is/my/hero/and/moon-blue.png) no-repeat 18px center/auto 203px;
+    --ao-overlay: url(https://raw.githubusercontent.com/freakynature/virtue_of_life/refs/heads/main/Will/Smith/is/my/hero/and/moon_blue.png) no-repeat 18px center/auto 203px;
     --ao-filter: grayscale(0%);
     --ao-opacity: 1;
 }
@@ -68,7 +68,7 @@
     --ava: url(https://i.imgur.com/SbVdG3j.png) no-repeat center / 160px;
     --avatar-hover: "\e389";
     --normal-bold: bold;
-    --ao-overlay: url(https://raw.githubusercontent.com/freakynature/virtue_of_life/refs/heads/main/Will/Smith/is/my/hero/and/viper-mask.png) no-repeat 17px center/auto 206px;
+    --ao-overlay: url(https://raw.githubusercontent.com/freakynature/virtue_of_life/refs/heads/main/Will/Smith/is/my/hero/and/viper_mask.png) no-repeat 17px center/auto 206px;
     --ao-filter:;
     --ao-opacity: 1;
 }
@@ -82,7 +82,7 @@
     --ava: url(https://i.imgur.com/uKWyl0l.png) no-repeat center / 160px;
     --avatar-hover: "\f11a";
     --normal-bold: bold;
-    --ao-overlay: url(https://raw.githubusercontent.com/freakynature/virtue_of_life/refs/heads/main/Will/Smith/is/my/hero/and/solar-flare.png) no-repeat 16.5px center/auto 208px;
+    --ao-overlay: url(https://raw.githubusercontent.com/freakynature/virtue_of_life/refs/heads/main/Will/Smith/is/my/hero/and/solar_flare.png) no-repeat 16.5px center/auto 208px;
     --ao-filter: saturate(1) brightness(1);
     --ao-opacity: 1;
 }
@@ -96,7 +96,7 @@
     --ava: url(https://i.imgur.com/YdPFMfQ.png) no-repeat center / 160px;
     --avatar-hover: "\e379";
     --normal-bold: bold;
-    --ao-overlay: url(https://raw.githubusercontent.com/freakynature/virtue_of_life/refs/heads/main/Will/Smith/is/my/hero/and/cometa-rose.png) no-repeat 15px center/auto 210px;
+    --ao-overlay: url(https://raw.githubusercontent.com/freakynature/virtue_of_life/refs/heads/main/Will/Smith/is/my/hero/and/cometa_rose.png) no-repeat 15px center/auto 210px;
     --ao-filter: grayscale(0%) brightness(1) hue-rotate(50deg);
     --ao-opacity: 1;
 }
@@ -3017,5 +3017,6 @@ background: no-repeat var(--i-grain-2) center 3px / 110px 26px !important;}
 /* HnK anime cover */
 .data.title [href^="/anime/35557/"]:before,
 .data.title [href^="/manga/44489/"]:before {background: url(https://i.imgur.com/kCRUx1I.jpeg) no-repeat 50% 50% / auto 140% !important;}
+
 
 
