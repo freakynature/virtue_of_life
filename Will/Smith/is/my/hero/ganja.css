@@ -40,9 +40,9 @@
     --ava: url(https://i.imgur.com/934mCt0.png) no-repeat center / 160px;
     --avatar-hover: "\e3a4";
     --normal-bold: bold;
-    --ao-overlay: url(https://i.imgur.com/mU7ddvI.jpg) no-repeat 25px center/auto 190px;
-    --ao-filter: grayscale(10%) brightness(1);
-    --ao-opacity: .7;
+    --ao-overlay: url(https://raw.githubusercontent.com/freakynature/virtue_of_life/refs/heads/main/Will/Smith/is/my/hero/and/sagittarius.png) no-repeat 25px center/auto 190px;
+    --ao-filter: grayscale(0%) brightness(1);
+    --ao-opacity: 1;
 }
 
 /* Watching */
@@ -54,8 +54,8 @@
     --ava: url(https://i.imgur.com/pUz9WQB.png) no-repeat center / 160px;
     --avatar-hover: "\f599";
     --normal-bold: bold;
-    --ao-overlay: url(https://i.imgur.com/GVQA9BV.jpg) no-repeat 18px center/auto 203px;
-    --ao-filter: grayscale(30%);
+    --ao-overlay: url(https://raw.githubusercontent.com/freakynature/virtue_of_life/refs/heads/main/Will/Smith/is/my/hero/and/moon-blue.png) no-repeat 18px center/auto 203px;
+    --ao-filter: grayscale(0%);
     --ao-opacity: 1;
 }
 
@@ -68,7 +68,7 @@
     --ava: url(https://i.imgur.com/SbVdG3j.png) no-repeat center / 160px;
     --avatar-hover: "\e389";
     --normal-bold: bold;
-    --ao-overlay: url(https://i.imgur.com/WgDMqU8.jpg) no-repeat 15px center/auto 210px;
+    --ao-overlay: url(https://raw.githubusercontent.com/freakynature/virtue_of_life/refs/heads/main/Will/Smith/is/my/hero/and/viper-mask.png) no-repeat 17px center/auto 206px;
     --ao-filter:;
     --ao-opacity: 1;
 }
@@ -82,8 +82,8 @@
     --ava: url(https://i.imgur.com/uKWyl0l.png) no-repeat center / 160px;
     --avatar-hover: "\f11a";
     --normal-bold: bold;
-    --ao-overlay: url(https://i.imgur.com/2fLQiqi.jpg) no-repeat 15px center/auto 210px;
-    --ao-filter: saturate(1.5) brightness(1.1);
+    --ao-overlay: url(https://raw.githubusercontent.com/freakynature/virtue_of_life/refs/heads/main/Will/Smith/is/my/hero/and/solar-flare.png) no-repeat 16.5px center/auto 208px;
+    --ao-filter: saturate(1) brightness(1);
     --ao-opacity: 1;
 }
 
@@ -96,8 +96,8 @@
     --ava: url(https://i.imgur.com/YdPFMfQ.png) no-repeat center / 160px;
     --avatar-hover: "\e379";
     --normal-bold: bold;
-    --ao-overlay: url(https://i.imgur.com/wXHdzf8.jpg) no-repeat 15px center/auto 210px;
-    --ao-filter: grayscale(70%) brightness(1.6) hue-rotate(345deg);
+    --ao-overlay: url(https://raw.githubusercontent.com/freakynature/virtue_of_life/refs/heads/main/Will/Smith/is/my/hero/and/cometa-rose.png) no-repeat 15px center/auto 210px;
+    --ao-filter: grayscale(0%) brightness(1) hue-rotate(50deg);
     --ao-opacity: 1;
 }
 
@@ -110,7 +110,7 @@
     --ava: url(https://i.imgur.com/BVYVms4.png) no-repeat center / 160px;
     --avatar-hover: "\e39b";
     --normal-bold: bold;
-    --ao-overlay: url(https://i.imgur.com/yazGQgM.jpg) no-repeat 18px center/auto 204px;
+    --ao-overlay: url(https://raw.githubusercontent.com/freakynature/virtue_of_life/refs/heads/main/Will/Smith/is/my/hero/and/mirage_void) no-repeat 18px center/auto 204px;
     --ao-filter: saturate(0.8);
     --ao-opacity: 1;
 }
@@ -3017,4 +3017,5 @@ background: no-repeat var(--i-grain-2) center 3px / 110px 26px !important;}
 /* HnK anime cover */
 .data.title [href^="/anime/35557/"]:before,
 .data.title [href^="/manga/44489/"]:before {background: url(https://i.imgur.com/kCRUx1I.jpeg) no-repeat 50% 50% / auto 140% !important;}
+
 
