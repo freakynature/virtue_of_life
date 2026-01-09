@@ -3005,7 +3005,8 @@ background: no-repeat var(--i-grain-2) center 3px / 110px 26px !important;}
 [href^="/anime/50762/"]:after {
     content: "";
     position: absolute;
-    background: var(--i-grain-2), url(https://i.imgur.com/Hamo2Yh.png);
+    background: var(--i-grain-2), url(https://i.imgur.com/7Bn0i5W.png);
+    /* ori: https://i.imgur.com/Hamo2Yh.png */
     /* box-shadow: 0 23px 0 var(--lower), 0 28px 0 var(--lower); */
     border-radius:  0 0 8px 8px;
     height: 51px; /* 23 */
@@ -3017,6 +3018,7 @@ background: no-repeat var(--i-grain-2) center 3px / 110px 26px !important;}
 /* HnK anime cover */
 .data.title [href^="/anime/35557/"]:before,
 .data.title [href^="/manga/44489/"]:before {background: url(https://i.imgur.com/kCRUx1I.jpeg) no-repeat 50% 50% / auto 140% !important;}
+
 
 
 
