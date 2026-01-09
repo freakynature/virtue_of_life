@@ -2998,11 +2998,11 @@ background: no-repeat var(--i-grain-2) center 0px / 110px 26px !important;}
 .data.volume {
 background: no-repeat var(--i-grain-2) center 3px / 110px 26px !important;}
 
-/* test */
-.data.title [href^="/anime/29978/"] {font-size: 0 !important;pointer-events: none !important;}
-.data.title [href^="/anime/29978/"]:before {background: url(https://i.imgur.com/ir4mMs7.gif) no-repeat center / cover !important;}
-.data.title [href^="/anime/29978/"]:after {content: "";}
-[href^="/anime/29978/"]:after {
+/* dummy entry */
+.data.title [href^="/anime/50762/"] {font-size: 0 !important;pointer-events: none !important;}
+.data.title [href^="/anime/50762/"]:before {background: url(https://i.imgur.com/ir4mMs7.gif) no-repeat center / cover !important;}
+.data.title [href^="/anime/50762/"]:after {content: "";}
+[href^="/anime/50762/"]:after {
     content: "";
     position: absolute;
     background: var(--i-grain-2), url(https://i.imgur.com/Hamo2Yh.png);
@@ -3017,6 +3017,7 @@ background: no-repeat var(--i-grain-2) center 3px / 110px 26px !important;}
 /* HnK anime cover */
 .data.title [href^="/anime/35557/"]:before,
 .data.title [href^="/manga/44489/"]:before {background: url(https://i.imgur.com/kCRUx1I.jpeg) no-repeat 50% 50% / auto 140% !important;}
+
 
 
 
