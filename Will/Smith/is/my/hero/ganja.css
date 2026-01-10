@@ -110,7 +110,7 @@
     --ava: url(https://i.imgur.com/BVYVms4.png) no-repeat center / 160px;
     --avatar-hover: "\e39b";
     --normal-bold: bold;
-    --ao-overlay: url(https://raw.githubusercontent.com/freakynature/virtue_of_life/refs/heads/main/Will/Smith/is/my/hero/and/mirage_void) no-repeat 18px center/auto 204px;
+    --ao-overlay: url(https://raw.githubusercontent.com/freakynature/virtue_of_life/refs/heads/main/Will/Smith/is/my/hero/and/mirage_void.png) no-repeat 18px center/auto 204px;
     --ao-filter: saturate(0.8);
     --ao-opacity: 1;
 }
@@ -3018,6 +3018,7 @@ background: no-repeat var(--i-grain-2) center 3px / 110px 26px !important;}
 /* HnK anime cover */
 .data.title [href^="/anime/35557/"]:before,
 .data.title [href^="/manga/44489/"]:before {background: url(https://i.imgur.com/kCRUx1I.jpeg) no-repeat 50% 50% / auto 140% !important;}
+
 
 
 
