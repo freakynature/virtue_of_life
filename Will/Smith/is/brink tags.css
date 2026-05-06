@@ -1,0 +1,130 @@
+/*------------------------------*\
+|*  Allow Tags to appear anywhere  *|
+\*------------------------------*/
+
+.data.tags {
+  z-index: 10;
+  overflow: initial;
+  opacity: 1;
+}
+
+.data.tags span {
+  min-height: initial;
+  margin-bottom: 0;
+}
+
+.data.tags a {
+  min-height: 15px;
+  margin-bottom: 4px;
+  opacity: 0;
+  transition:
+    color var(--timeText) var(--bezierFast),
+    opacity calc(var(--timeItem) * 1.5) var(--bezierFast);
+} .list-item:hover .data.tags a {
+  opacity: 1;
+}
+
+/*------------------------------*\
+|*    Favourite Tags  v1.0.0    *|
+\*------------------------------*/
+
+/*.data.tags span a[href*="=Favourite"] {
+  position: absolute;
+  z-index: 10;
+  right: calc(198px - 20px);
+  top: calc(-51px - 10px);
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  background: hsl(var(--btn));
+  border-radius: 50%;
+  box-shadow: -0.5px 0.7px 2.1px hsla(0, 0%, 0%, 35%);
+  font-size: 0 !important;
+  text-align: center;
+  text-shadow: none;
+  opacity: 1;
+  transition: background-color var(--timeButton) var(--bezierFast);
+} .data.tags span a[href*="=Favourite"]:hover {
+  background: hsl(var(--btnAlt));
+}
+
+.data.tags span a[href*="=Favourite"]::before {
+  content: "\f004";
+  padding: 0;
+  font: 16px/30px "FontAwesome";
+}
+
+.data.tags a[href$="=Favourite"]::after {
+  content: none;
+}*/
+
+/* 'Airing' day */
+.data.tags span a[href$="=mon"],
+.data.tags span a[href$="=tue"],
+.data.tags span a[href$="=wed"],
+.data.tags span a[href$="=thu"],
+.data.tags span a[href$="=fri"],
+.data.tags span a[href$="=sat"],
+.data.tags span a[href$="=sun"] {
+  position: absolute;
+  left: calc(198px - 125px);
+  top: calc(-51px - 6px);
+  width: 40px;
+  height: 22px;
+  padding: 0;
+  background: hsl(var(--bg));
+  border-bottom: 1px solid var(--tdbg);
+  border-radius: 4px;
+  box-shadow: 2px 1px 2px 2px rgba(10,10,10,0.3);
+  font-size: 0 !important;
+  text-align: center;
+  text-shadow: none;
+  overflow: hidden;
+  z-index: 10;
+  opacity: 1;
+  transform: rotate(15deg);
+  pointer-event: auto;
+}
+
+.data.tags span a[href$="=mon"] {--tdbg: hsl(149, 63%, 66%);--tdbg2: hsl(119, 100%, 66%);}
+.data.tags span a[href$="=tue"] {--tdbg: hsl(185, 65%, 69%);--tdbg2: hsl(155, 100%, 69%);}
+.data.tags span a[href$="=wed"] {--tdbg: hsl(250, 55%, 70%);--tdbg2: hsl(220, 100%, 70%);}
+.data.tags span a[href$="=thu"] {--tdbg: hsl(307, 55%, 61%);--tdbg2: hsl(277, 100%, 61%);}
+.data.tags span a[href$="=fri"] {--tdbg: hsl(360, 72%, 60%);--tdbg2: hsl(330, 100%, 60%);}
+.data.tags span a[href$="=sat"] {--tdbg: hsl(17, 95%, 69%);--tdbg2: hsl(0, 100%, 69%);}
+.data.tags span a[href$="=sun"] {--tdbg: hsl(60, 74%, 73%);--tdbg2: hsl(30, 100%, 73%);
+}
+
+.data.tags a[href$="=mon"]:before,
+.data.tags a[href$="=tue"]:before,
+.data.tags a[href$="=wed"]:before,
+.data.tags a[href$="=thu"]:before,
+.data.tags a[href$="=fri"]:before,
+.data.tags a[href$="=sat"]:before,
+.data.tags a[href$="=sun"]:before {
+  padding: 0;
+  font: bold 15px/20px Quantico;
+  background:linear-gradient(150deg,var(--tdbg) 30%, var(--tdbg2) 100%);
+  background-clip: text;
+  color: transparent;
+  letter-spacing: 0.5px;
+}
+
+.data.tags a[href$="=mon"]:before {content: "MON";}
+.data.tags a[href$="=tue"]:before {content: "TUE";}
+.data.tags a[href$="=wed"]:before {content: "WED";}
+.data.tags a[href$="=thu"]:before {content: "THU";}
+.data.tags a[href$="=fri"]:before {content: "FRI";}
+.data.tags a[href$="=sat"]:before {content: "SAT";}
+.data.tags a[href$="=sun"]:before {content: "SUN";
+} 
+
+.data.tags a[href$="=mon"]:after,
+.data.tags a[href$="=tue"]:after,
+.data.tags a[href$="=wed"]:after,
+.data.tags a[href$="=thu"]:after,
+.data.tags a[href$="=fri"]:after,
+.data.tags a[href$="=sat"]:after,
+.data.tags a[href$="=sun"]:after {
+  content: none;
+}
