@@ -24,14 +24,11 @@
   opacity: 1;
 }
 
-/*------------------------------*\
-|*    Favourite Tags  v1.0.0    *|
-\*------------------------------*/
-
+/* fav icon */
 .data.tags span a[href*="=fav"] {
   position: absolute;
   z-index: 10;
-  right: calc(198px - 225px);
+  right: calc(198px - 224px);
   top: calc(-51px - -25px);
   width: 30px;
   height: 30px;
@@ -96,12 +93,12 @@
   background: hsl(var(--text));
 }
 
-.data.tags span a[href$="=mon"] {--tdbg: #6eee87;--tdbg2: #5fc52e;}
-.data.tags span a[href$="=tue"] {--tdbg: #9bf8f4;--tdbg2: #01dbff;}
-.data.tags span a[href$="=wed"] {--tdbg: #A761D6;--tdbg2: #8364e8;}
-.data.tags span a[href$="=thu"] {--tdbg: hsl(307, 55%, 61%);--tdbg2: hsl(277, 100%, 61%);}
-.data.tags span a[href$="=fri"] {--tdbg: #ff5762;--tdbg2: #fd4b2f}
-.data.tags span a[href$="=sat"] {--tdbg: #ee9539;--tdbg2: #f8663a;}
+.data.tags span a[href$="=mon"] {--tdbg: #88F85A;--tdbg2: #4ABA88;}
+.data.tags span a[href$="=tue"] {--tdbg: #5FCFFF;--tdbg2: #1E81ED;}
+.data.tags span a[href$="=wed"] {--tdbg: #C45BF9;--tdbg2: #9556E0;}
+.data.tags span a[href$="=thu"] {--tdbg: #FFB7AC;--tdbg2: #FF7CAC;}
+.data.tags span a[href$="=fri"] {--tdbg: #FF7A5B;--tdbg2: #EF4848;}
+.data.tags span a[href$="=sat"] {--tdbg: #FFB754;--tdbg2: #FF7D18;}
 .data.tags span a[href$="=sun"] {--tdbg: #f7f779;--tdbg2: #fbd07c;
 }
 
