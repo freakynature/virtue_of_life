@@ -28,11 +28,11 @@
 |*    Favourite Tags  v1.0.0    *|
 \*------------------------------*/
 
-.data.tags span a[href*="=Favourite"] {
+.data.tags span a[href*="=fav"] {
   position: absolute;
   z-index: 10;
-  right: calc(198px - 20px);
-  top: calc(-51px - 10px);
+  right: calc(198px - 225px);
+  top: calc(-51px - -25px);
   width: 30px;
   height: 30px;
   padding: 0;
@@ -43,18 +43,17 @@
   text-align: center;
   text-shadow: none;
   opacity: 1;
-  transition: background-color var(--timeButton) var(--bezierFast);
-} .data.tags span a[href*="=Favourite"]:hover {
-  background: hsl(var(--btnAlt));
+  transition: filter var(--timeButton) var(--bezierFast);
 }
-
-.data.tags span a[href*="=Favourite"]::before {
+.data.tags span a[href*="=fav"]:hover {
+  filter: invert(1);
+}
+.data.tags span a[href*="=fav"]::before {
   content: "\f004";
   padding: 0;
   font: 16px/30px "FontAwesome";
 }
-
-.data.tags a[href$="=Favourite"]::after {
+.data.tags a[href$="=fav"]::after {
   content: none;
 }
 
@@ -72,7 +71,7 @@
   width: 40px;
   height: 22px;
   padding: 0;
-  background: hsl(var(--bg));
+  background: hsl(var(--bgAlt));
   border-bottom: 1px solid var(--tdbg);
   border-radius: 4px;
   box-shadow: 2px 1px 2px 2px rgba(10,10,10,0.3);
@@ -84,15 +83,26 @@
   opacity: 1;
   transform: rotate(15deg);
   pointer-events: auto;
+  transition: background-color var(--timeButton) var(--bezierFast);
 }
 
-.data.tags span a[href$="=mon"] {--tdbg: hsl(149, 63%, 66%);--tdbg2: hsl(119, 100%, 66%);}
-.data.tags span a[href$="=tue"] {--tdbg: hsl(185, 65%, 69%);--tdbg2: hsl(155, 100%, 69%);}
-.data.tags span a[href$="=wed"] {--tdbg: hsl(250, 55%, 70%);--tdbg2: hsl(220, 100%, 70%);}
+.data.tags span a[href$="=mon"]:hover,
+.data.tags span a[href$="=tue"]:hover,
+.data.tags span a[href$="=wed"]:hover,
+.data.tags span a[href$="=thu"]:hover,
+.data.tags span a[href$="=fri"]:hover,
+.data.tags span a[href$="=sat"]:hover,
+.data.tags span a[href$="=sun"]:hover {
+  background: hsl(var(--text));
+}
+
+.data.tags span a[href$="=mon"] {--tdbg: #6eee87;--tdbg2: #5fc52e;}
+.data.tags span a[href$="=tue"] {--tdbg: #9bf8f4;--tdbg2: #01dbff;}
+.data.tags span a[href$="=wed"] {--tdbg: #A761D6;--tdbg2: #8364e8;}
 .data.tags span a[href$="=thu"] {--tdbg: hsl(307, 55%, 61%);--tdbg2: hsl(277, 100%, 61%);}
-.data.tags span a[href$="=fri"] {--tdbg: hsl(360, 72%, 60%);--tdbg2: hsl(330, 100%, 60%);}
-.data.tags span a[href$="=sat"] {--tdbg: hsl(17, 95%, 69%);--tdbg2: hsl(0, 100%, 69%);}
-.data.tags span a[href$="=sun"] {--tdbg: hsl(60, 74%, 73%);--tdbg2: hsl(30, 100%, 73%);
+.data.tags span a[href$="=fri"] {--tdbg: #ff5762;--tdbg2: #fd4b2f}
+.data.tags span a[href$="=sat"] {--tdbg: #ee9539;--tdbg2: #f8663a;}
+.data.tags span a[href$="=sun"] {--tdbg: #f7f779;--tdbg2: #fbd07c;
 }
 
 .data.tags a[href$="=mon"]:before,
@@ -104,7 +114,7 @@
 .data.tags a[href$="=sun"]:before {
   padding: 0;
   font: bold 15px/20px var(--font);
-  background:linear-gradient(150deg,var(--tdbg) 30%, var(--tdbg2) 100%);
+  background:linear-gradient(180deg,var(--tdbg) 40%, var(--tdbg2) 80%);
   background-clip: text;
   color: transparent;
   letter-spacing: 0.5px;
