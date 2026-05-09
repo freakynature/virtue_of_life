@@ -1452,8 +1452,15 @@ div[class^="icon-watch"] {
   text-transform: capitalize
 }
 
-.data.score .link:before {
+[data-query*='"status":7'] .data.score .link:before {
   content: "| Scored ";
+  font-size: 12px;
+  font-weight: normal;
+  white-space: pre
+}
+
+.data.score .link:before {
+  content: "Scored | ";
   font-size: 12px;
   font-weight: normal;
   white-space: pre
@@ -1473,7 +1480,13 @@ div[class^="icon-watch"] {
   order: 1
 }
 
-/*.data .score-na:before {
+/* original score-na---------
+.data .score-na {
+  font-size: 0;
+  order: -1
+}
+
+.data .score-na:before {
   content: "Not ";
   font-size: 12px;
   font-weight: normal
