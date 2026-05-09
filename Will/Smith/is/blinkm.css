@@ -1260,7 +1260,7 @@ div[class^="icon-watch"] {
   animation: gradient-animation 3s ease infinite;
   background-clip: text !important;
     -webkit-text-stroke-width: .3px;
-    -webkit-text-stroke-color: hsla(0,0%,0%,1);
+	-webkit-text-stroke-color: hsla(0,0%,0%,1);
   font-size: 17px !important;
   font-weight: bold;
   line-height: 1;
@@ -1425,24 +1425,24 @@ div[class^="icon-watch"] {
 
 [data-query*='"status":7'] .watching~.data.score:before,
 [data-query*='"status":7'] .reading~.data.score:before {
-  content: "Neow | "
+  content: "Neow ";color: hsl(var(--current))
 }
 
 [data-query*='"status":7'] .completed~.data.score:before {
-  content: "Done | "
+  content: "Done ";color: hsl(var(--completed))
 }
 
 [data-query*='"status":7'] .onhold~.data.score:before {
-  content: "Halt | "
+  content: "Halt ";color: hsl(var(--paused))
 }
 
 [data-query*='"status":7'] .dropped~.data.score:before {
-  content: "Nope | "
+  content: "Nope ";color: hsl(var(--dropped))
 }
 
 [data-query*='"status":7'] .plantowatch~.data.score:before,
 [data-query*='"status":7'] .plantoread~.data.score:before {
-  content: "Soon | "
+  content: "Soon ";color: hsl(var(--planned))
 }
 
 .data.score .link {
@@ -1453,7 +1453,7 @@ div[class^="icon-watch"] {
 }
 
 .data.score .link:before {
-  content: "Scored ";
+  content: "| Scored ";
   font-size: 12px;
   font-weight: normal;
   white-space: pre
@@ -1468,15 +1468,16 @@ div[class^="icon-watch"] {
 }
 
 .data .score-na {
-  font-size: 0;
-  order: -1
+  font-size: 12px;
+  font-weight: normal;
+  order: 1
 }
 
-.data .score-na:before {
+/*.data .score-na:before {
   content: "Not ";
   font-size: 12px;
   font-weight: normal
-}
+}*/
 
 .data .score-8 {
   --rated: var(--bronzeRating);
@@ -1716,7 +1717,7 @@ span:nth-of-type(2):after {
 :nth-child(2):not(.number)~.data.type,
 .data.number {
   position: absolute;
-  top: 10px;
+  top: 11.5px;
   left: 12px;
   text-shadow: 0px 1.5px -1px hsl(0,0%,0%);
   background: hsl(var(--bg));
