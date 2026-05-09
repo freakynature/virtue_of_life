@@ -240,13 +240,13 @@
   background: hsl(var(--text));
 }
 
-.data.tags span a[href$="=mon"] {--tdbg: #88F85A;--tdbg2: #4ABA88;}
-.data.tags span a[href$="=tue"] {--tdbg: #5FCFFF;--tdbg2: #1E81ED;}
-.data.tags span a[href$="=wed"] {--tdbg: #C45BF9;--tdbg2: #9556E0;}
-.data.tags span a[href$="=thu"] {--tdbg: #FFB7AC;--tdbg2: #FF7CAC;}
-.data.tags span a[href$="=fri"] {--tdbg: #FF7A5B;--tdbg2: #EF4848;}
-.data.tags span a[href$="=sat"] {--tdbg: #FFB754;--tdbg2: #FF7D18;}
-.data.tags span a[href$="=sun"] {--tdbg: #f7f779;--tdbg2: #fbd07c;
+.data.tags span a[href$="=mon"] {--tdbg: hsl(102.53, 91.86%, 66.27%);--tdbg2: hsl(153.21, 44.8%, 50.98%);}
+.data.tags span a[href$="=tue"] {--tdbg: hsl(198, 100%, 70.63%);--tdbg2: hsl(215.3, 100%, 63.35%);}
+.data.tags span a[href$="=wed"] {--tdbg: hsl(285.87, 100%, 70.67%);--tdbg2: hsl(270.39, 100%, 60.98%);}
+.data.tags span a[href$="=thu"] {--tdbg: hsl(7.95, 100%, 75.73%);--tdbg2: hsl(338.02, 100%, 64.31%);}
+.data.tags span a[href$="=fri"] {--tdbg: hsl(11.34, 100%, 67.84%);--tdbg2: hsl(0, 83.92%, 60.98%);}
+.data.tags span a[href$="=sat"] {--tdbg: hsl(30.74, 100%, 66.47%);--tdbg2: hsl(26.23, 100%, 56.71%);}
+.data.tags span a[href$="=sun"] {--tdbg: hsl(60, 88.73%, 64.16%);--tdbg2: hsl(35.69, 94.07%, 59.53%);
 }
 
 .data.tags a[href$="=mon"]:before,
