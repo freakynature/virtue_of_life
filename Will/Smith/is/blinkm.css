@@ -68,7 +68,7 @@
   --accent: var(--all);
   --btnAccent: var(--all2);
   --background-image: url();
-  --banner-image: url(https://i.imgur.com/DcURdp7.png);
+  --banner-image: url(https://i.imgur.com/rLjw1uM.png);
   --scrollbar: linear-gradient(to bottom, hsl(var(--completed)), hsl(var(--paused)), hsl(var(--dropped)), hsl(var(--planned)), hsl(var(--current))) !important
 }
 
@@ -77,7 +77,7 @@
   --accent: var(--current);
   --btnAccent: var(--current2);
   --background-image: url();
-  --banner-image: url(https://i.imgur.com/DcURdp7.png);
+  --banner-image: url(https://i.imgur.com/rLjw1uM.png);
   --scrollbar: linear-gradient(to bottom, hsl(var(--current)), hsl(var(--completed))) !important
 }
 
@@ -86,7 +86,7 @@
   --accent: var(--completed);
   --btnAccent: var(--completed2);
   --background-image: url();
-  --banner-image: url(https://i.imgur.com/DcURdp7.png);
+  --banner-image: url(https://i.imgur.com/rLjw1uM.png);
   --scrollbar: hsl(var(--completed)) !important
 }
 
@@ -95,7 +95,7 @@
   --accent: var(--paused);
   --btnAccent: var(--paused2);
   --background-image: url();
-  --banner-image: url(https://i.imgur.com/DcURdp7.png);
+  --banner-image: url(https://i.imgur.com/rLjw1uM.png);
   --scrollbar: hsl(var(--paused)) !important
 }
 
@@ -104,7 +104,7 @@
   --accent: var(--dropped);
   --btnAccent: var(--dropped2);
   --background-image: url();
-  --banner-image: url(https://i.imgur.com/DcURdp7.png);
+  --banner-image: url(https://i.imgur.com/rLjw1uM.png);
   --scrollbar: hsl(var(--dropped)) !important
 }
 
@@ -113,7 +113,7 @@
   --accent: var(--planned);
   --btnAccent: var(--planned2);
   --background-image: url();
-  --banner-image: url(https://i.imgur.com/DcURdp7.png);
+  --banner-image: url(https://i.imgur.com/rLjw1uM.png);
   --scrollbar: linear-gradient(to bottom, hsl(var(--planned)), hsl(var(--dropped))) !important
 }
 
