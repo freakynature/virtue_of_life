@@ -46,17 +46,17 @@
   transition: all var(--timeButton) var(--bezierFast);
 }
 .data.tags span a[href*="=fav"]:hover {
-  background: hsl(var(--text));color: hsl(var(--bg))
+  background: hsl(var(--text));
 }
 .data.tags span a[href*="=fav"]::before {
   content: "\f004";
   padding: 0;
   font: 16px/30px "FontAwesome";
+  transition: color var(--timeButton) var(--bezierFast);
 }
-.data.tags a[href$="=fav"]::after {
-  content: none;
+.data.tags span a[href*="=fav"]:hover:before {
+  color: hsl(var(--btnAlt));
 }
-
 
 .data.tags span a[href*="=Where"] {
   position: absolute;
@@ -75,16 +75,17 @@
   opacity: 1;
   transition: all var(--timeButton) var(--bezierFast);
 }
-.data.tags span a[href*="=fav"]:hover {
-  background: hsl(var(--text));color: hsl(var(--btn))
+.data.tags span a[href*="=Where"]:hover {
+  background: hsl(var(--text))
 }
 .data.tags span a[href*="=Where"]::before {
-  content: "\f070";
+  content: "\e60e";
   padding: 0;
   font: 16px/30px "FontAwesome";
+  transition: color var(--timeButton) var(--bezierFast);
 }
-.data.tags a[href$="=Where"]::after {
-  content: none;
+.data.tags span a[href*="=Where"]:hover:before {
+  color: hsl(var(--btnAlt));
 }
 
 .data.tags span a[href*="=inf"] {
@@ -104,16 +105,17 @@
   opacity: 1;
   transition: all var(--timeButton) var(--bezierFast);
 }
-.data.tags span a[href*="=fav"]:hover {
-  background: hsl(var(--text));color: hsl(var(--btn))
+.data.tags span a[href*="=inf"]:hover {
+  background: hsl(var(--text))
 }
 .data.tags span a[href*="=inf"]::before {
   content: "\f534";
   padding: 0;
   font: 16px/30px "FontAwesome";
+  transition: color var(--timeButton) var(--bezierFast);
 }
-.data.tags a[href$="=inf"]::after {
-  content: none;
+.data.tags span a[href*="=inf"]:hover:before {
+  color: hsl(var(--btnAlt));
 }
 
 .data.tags span a[href*="=pp"] {
@@ -133,16 +135,17 @@
   opacity: 1;
   transition: all var(--timeButton) var(--bezierFast);
 }
-.data.tags span a[href*="=fav"]:hover {
-  background: hsl(var(--text));color: hsl(var(--btn))
+.data.tags span a[href*="=pp"]:hover {
+  background: hsl(var(--text))
 }
 .data.tags span a[href*="=pp"]::before {
   content: "\e0d2";
   padding: 0;
   font: 16px/30px "FontAwesome";
+  transition: color var(--timeButton) var(--bezierFast);
 }
-.data.tags a[href$="=pp"]::after {
-  content: none;
+.data.tags span a[href*="=pp"]:hover:before {
+  color: hsl(var(--btnAlt));
 }
 
 .data.tags span a[href*="=Ded"] {
@@ -162,16 +165,17 @@
   opacity: 1;
   transition: all var(--timeButton) var(--bezierFast);
 }
-.data.tags span a[href*="=fav"]:hover {
-  background: hsl(var(--text));color: hsl(var(--btn))
+.data.tags span a[href*="=Ded"]:hover {
+  background: hsl(var(--text))
 }
 .data.tags span a[href*="=Ded"]::before {
   content: "\f54c";
   padding: 0;
   font: 16px/30px "FontAwesome";
+  transition: color var(--timeButton) var(--bezierFast);
 }
-.data.tags a[href$="=Ded"]::after {
-  content: none;
+.data.tags span a[href*="=Ded"]:hover:before {
+  color: hsl(var(--btnAlt));
 }
 
 .data.tags span a[href*="=Unko"] {
@@ -189,15 +193,19 @@
   text-align: center;
   text-shadow: none;
   opacity: 1;
-  transition: all var(--timeButton) var(--bezierFast);
+  transition: background var(--timeButton) var(--bezierFast);
 }
-.data.tags span a[href*="=fav"]:hover {
-  background: hsl(var(--text));color: hsl(var(--btn))
+.data.tags span a[href*="=Unko"]:hover {
+  background: hsl(var(--text))
 }
 .data.tags span a[href*="=Unko"]::before {
   content: "\f2fe";
   padding: 0;
   font: 16px/30px "FontAwesome";
+  transition: color var(--timeButton) var(--bezierFast);
+}
+.data.tags span a[href*="=Unko"]:hover:before {
+  color: hsl(var(--btnAlt));
 }
 
 
