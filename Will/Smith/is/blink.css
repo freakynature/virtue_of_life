@@ -43,10 +43,10 @@
   text-align: center;
   text-shadow: none;
   opacity: 1;
-  transition: filter var(--timeButton) var(--bezierFast);
+  transition: all var(--timeButton) var(--bezierFast);
 }
 .data.tags span a[href*="=fav"]:hover {
-  filter: invert(1);
+  background: hsl(var(--text));color: hsl(var(--bg))
 }
 .data.tags span a[href*="=fav"]::before {
   content: "\f004";
@@ -73,10 +73,10 @@
   text-align: center;
   text-shadow: none;
   opacity: 1;
-  transition: filter var(--timeButton) var(--bezierFast);
+  transition: all var(--timeButton) var(--bezierFast);
 }
-.data.tags span a[href*="=Where"]:hover {
-  filter: invert(1);
+.data.tags span a[href*="=fav"]:hover {
+  background: hsl(var(--text));color: hsl(var(--btn))
 }
 .data.tags span a[href*="=Where"]::before {
   content: "\f070";
@@ -102,10 +102,10 @@
   text-align: center;
   text-shadow: none;
   opacity: 1;
-  transition: filter var(--timeButton) var(--bezierFast);
+  transition: all var(--timeButton) var(--bezierFast);
 }
-.data.tags span a[href*="=inf"]:hover {
-  filter: invert(1);
+.data.tags span a[href*="=fav"]:hover {
+  background: hsl(var(--text));color: hsl(var(--btn))
 }
 .data.tags span a[href*="=inf"]::before {
   content: "\f534";
@@ -131,10 +131,10 @@
   text-align: center;
   text-shadow: none;
   opacity: 1;
-  transition: filter var(--timeButton) var(--bezierFast);
+  transition: all var(--timeButton) var(--bezierFast);
 }
-.data.tags span a[href*="=pp"]:hover {
-  filter: invert(1);
+.data.tags span a[href*="=fav"]:hover {
+  background: hsl(var(--text));color: hsl(var(--btn))
 }
 .data.tags span a[href*="=pp"]::before {
   content: "\e0d2";
@@ -160,10 +160,10 @@
   text-align: center;
   text-shadow: none;
   opacity: 1;
-  transition: filter var(--timeButton) var(--bezierFast);
+  transition: all var(--timeButton) var(--bezierFast);
 }
-.data.tags span a[href*="=Ded"]:hover {
-  filter: invert(1);
+.data.tags span a[href*="=fav"]:hover {
+  background: hsl(var(--text));color: hsl(var(--btn))
 }
 .data.tags span a[href*="=Ded"]::before {
   content: "\f54c";
@@ -189,10 +189,10 @@
   text-align: center;
   text-shadow: none;
   opacity: 1;
-  transition: filter var(--timeButton) var(--bezierFast);
+  transition: all var(--timeButton) var(--bezierFast);
 }
-.data.tags span a[href*="=Unko"]:hover {
-  filter: invert(1);
+.data.tags span a[href*="=fav"]:hover {
+  background: hsl(var(--text));color: hsl(var(--btn))
 }
 .data.tags span a[href*="=Unko"]::before {
   content: "\f2fe";
