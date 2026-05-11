@@ -3,7 +3,7 @@
 \*------------------------------*/
 
 .data.tags {
-  z-index: 10;
+  z-index: 1;
   overflow: initial;
   opacity: 1;
 }
@@ -248,13 +248,13 @@
   background: hsl(var(--text));
 }
 
-.data.tags span a[href$="=mon"] {--tdbg: hsl(102.53, 91.86%, 66.27%);--tdbg2: hsl(153.21, 44.8%, 50.98%);}
-.data.tags span a[href$="=tue"] {--tdbg: hsl(198, 100%, 70.63%);--tdbg2: hsl(215.3, 100%, 63.35%);}
-.data.tags span a[href$="=wed"] {--tdbg: hsl(285.87, 100%, 70.67%);--tdbg2: hsl(270.39, 100%, 60.98%);}
-.data.tags span a[href$="=thu"] {--tdbg: hsl(7.95, 100%, 75.73%);--tdbg2: hsl(338.02, 100%, 64.31%);}
-.data.tags span a[href$="=fri"] {--tdbg: hsl(11.34, 100%, 67.84%);--tdbg2: hsl(0, 83.92%, 60.98%);}
-.data.tags span a[href$="=sat"] {--tdbg: hsl(30.74, 100%, 66.47%);--tdbg2: hsl(26.23, 100%, 56.71%);}
-.data.tags span a[href$="=sun"] {--tdbg: hsl(60, 88.73%, 64.16%);--tdbg2: hsl(35.69, 94.07%, 59.53%);
+.data.tags span a[href$="=mon"] {--tdbg: hsl(100, 100%, 70%);--tdbg2: hsl(120, 100%, 65%);}
+.data.tags span a[href$="=tue"] {--tdbg: hsl(200, 100%, 70%);--tdbg2: hsl(215, 100%, 65%);}
+.data.tags span a[href$="=wed"] {--tdbg: hsl(285, 100%, 70%);--tdbg2: hsl(275, 100%, 65%);}
+.data.tags span a[href$="=thu"] {--tdbg: hsl(315, 100%, 70%);--tdbg2: hsl(290, 100%, 65%);}
+.data.tags span a[href$="=fri"] {--tdbg: hsl(15, 100%, 70%);--tdbg2: hsl(0, 100%, 65%);}
+.data.tags span a[href$="=sat"] {--tdbg: hsl(35, 100%, 70%);--tdbg2: hsl(25, 100%, 65%);}
+.data.tags span a[href$="=sun"] {--tdbg: hsl(60, 100%, 70%);--tdbg2: hsl(45, 100%, 65%);
 }
 
 .data.tags a[href$="=mon"]:before,
