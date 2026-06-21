@@ -2624,7 +2624,7 @@ body.ownlist {
 }
 
 /* Apply filter to entry */
-.data.image {filter: brightness(90%) grayscale(20%);}
+.data.image {filter: brightness(95%) grayscale(60%);}
 
 /* dummy entry */
 .data.title [href^="/anime/50762/"] {font-size: 0 !important;pointer-events: none !important;}
