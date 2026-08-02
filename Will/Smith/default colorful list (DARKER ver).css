@@ -1,0 +1,1364 @@
+@\import "https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&display=swap";
+@\import "https://valeriolyndon.github.io/MAL-Public-List-Designs/resources/font-awesome-4.7.0/css/font-awesome-force-legacy.min.css";
+
+
+:root {
+  --font: "DM Mono", "FontAwesome 4", "FontAwesome";
+  /* Generic Colours */
+  --bg-black: hsl(0, 0%, 10%);
+  --bg-black2: hsl(0, 0%, 14%);
+  --bg-black3: hsl(0, 0%, 18%); 
+  --bg-black4: hsl(0, 0%, 22%);
+  --bg-black5: hsl(0, 0%, 28%); 
+  --bg-black6: hsl(0, 0%, 38%);
+  
+  --text-1: oklch(99% 0 0); /* other normally white text */
+  --text-2: oklch(85% 0 0); /* headings and important text */
+  --text-3: oklch(70% 0 0); /* normal text */
+  --text-4: oklch(60% 0 0); /* icon buttons and channels */
+  --text-5: oklch(50% 0 0); /* muted channels/chats and timestamps */
+
+  /* Status Colours */
+  --accent:  hsl(0, 0%, 95%);
+  --watching: hsl(197, 100%, 70%);
+  --completed: hsl(106, 100%, 70%);
+  --onhold: hsl(41, 100%, 75%);
+  --dropped: hsl(343, 90%, 70%);
+  --plantowatch: hsl(252, 50%, 70%);
+}
+
+[data-query*="status\":7"] {
+  --status: var(--watching) !important;
+}
+[data-query*="status\":1"] {
+  --status: var(--watching) !important;
+}
+[data-query*="status\":2"] {
+  --status: var(--completed) !important;
+}
+[data-query*="status\":3"] {
+  --status: var(--onhold) !important;
+}
+[data-query*="status\":4"] {
+  --status: var(--dropped) !important;
+}
+[data-query*="status\":6"] {
+  --status: var(--plantowatch) !important;
+}
+
+/* Remove all background images, keep everything else default */
+body, .header, .header::before, .header::after, .list-menu-float, .list-menu-float::before, .status-menu-container, .list-container, .list-unit, .list-table, .list-table-header, .list-table-data, .cover-block, .list-block {
+  background-image: none !important;
+}
+
+/* Keep status bar in normal document flow, not fixed/pinned */
+.status-menu-container, .status-menu-container.fixed {
+  position: static !important;
+}
+
+/* Keep the table below it from shifting when MAL toggles .fixed */
+.list-block, .status-menu-container.fixed + .list-block {
+  position: static !important;
+  margin-top: 0 !important;
+}
+
+/* Make the status title bar match the full list width */
+.list-unit .list-status-title {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ============================================================
+   Full-width table, no side gaps / horizontal scroll
+   Overrides MAL's native hardcoded widths:
+   .list-container (1058px), .list-unit (1024px), .status-menu-container (1058px)
+   ============================================================ */
+body {
+  font: 300 11px var(--font) !important;
+  letter-spacing: -0.05ch; 
+  margin: 0;
+}
+
+.list-container {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  box-sizing: border-box !important;
+  padding-left: 300px !important;
+  background-color: var(--bg-black) !important;
+  border: 0 !important;
+}
+
+.list-unit {
+  width: 100% !important;
+  margin: 0 !important;
+  box-sizing: border-box !important;
+}
+
+.status-menu-container {
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.list-table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+/* Visually hide columns without disabling them */
+th.header-title.started, td.data.started, th.header-title.finished, td.data.finished, th.header-title.genre, td.data.genre, th.header-title.priority, td.data.priority, th.header-title.rated, td.data.rated, th.header-title.storage, td.data.storage, th.header-title.studio, td.data.studio, th.header-title.mal_score, td.data.mal_score, th.header-title.demographic, td.data.demographic, th.header-title.licensor, td.data.licensor, th.header-title.magazine, td.data.magazine, th.header-title.retail, td.data.retail {
+  width: 0 !important;
+  max-width: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  overflow: hidden !important;
+  white-space: nowrap !important;
+  font-size: 0 !important;
+}
+
+/* List stats bar (shown via Stats button) - match full list width */
+.list-unit .list-stats {
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* Hide the image column's width but keep the image in the DOM */
+.list-table .list-table-header .header-title.image, .list-table .list-table-data .data.image {
+  width: 0 !important;
+  padding: 0 !important;
+  overflow: hidden;
+}
+
+.list-table .list-table-header .header-title.image .link {
+  display: none;
+}
+
+/* Cover image (the real ), fixed in the left space, shown on row hover.
+   Left-aligned with a margin equal to list-menu-float's width (50px) plus
+   a small gap, so it never overlaps the float menu. */
+.list-table .list-table-data .data.image .link {
+  position: fixed;
+  top: 86px;
+  left: 87px;
+  /* centered within the zone between float menu and table */
+  z-index: 2;
+  width: 176px;
+  height: 250px;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,.3);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .25s ease-in-out;
+  pointer-events: none;
+}
+
+.list-table .list-table-data:hover .data.image .link {
+  opacity: 1;
+  visibility: visible;
+}
+
+.list-table .list-table-data .data.image .image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: none;
+}
+
+/* Collapse the top header bar's visual footprint (don't use display:none,
+   since that would also hide the home button we're pulling out of it below) */
+.header {
+  height: 0 !important;
+  overflow: visible !important;
+  margin: 0 !important;
+  border: 0 !important;
+  background: none !important;
+}
+
+.header::before, .header::after {
+  display: none !important;
+}
+
+/* Pin list-menu-float to a known position (was JS-calculated) */
+.list-menu-float {
+  left: 0 !important;
+}
+
+/* ============================================================
+   Extra data revealed below the cover image on row hover:
+   Studio, Genres, Demographics, Licensors, Storage, Rated, MAL Score, Tags
+   Reuses the hidden columns' actual cells (repositioned, not duplicated)
+   ============================================================ */
+.list-table .list-table-data .data.airing-finished, .list-table .list-table-data .data.airing-started, .list-table .list-table-data .data.studio, .list-table .list-table-data .data.genre, .list-table .list-table-data .data.demographic, .list-table .list-table-data .data.licensor, .list-table .list-table-data .data.rated, .list-table .list-table-data .data.magazine, .list-table .list-table-data .data.mal_score, .list-table .list-table-data .data.season {
+  display: block !important;
+  position: fixed !important;
+  left: 61px !important;
+  width: auto !important;
+  max-width: none !important;
+  box-sizing: border-box !important;
+  padding: 3px 8px !important;
+  border: 0 !important;
+  border-radius: 6px !important;
+  overflow: visible !important;
+  white-space: nowrap !important;
+  font-size: 11px !important;
+  line-height: 1.4;
+  color: var(--text-2) !important;
+  text-align: left !important;
+  background: var(--bg-black) !important;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .25s ease-in-out;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.list-table .list-table-data:hover .data.studio,
+.list-table .list-table-data:hover .data.genre,
+.list-table .list-table-data:hover .data.demographic,
+.list-table .list-table-data:hover .data.licensor,
+.list-table .list-table-data:hover .data.rated,
+.list-table .list-table-data:hover .data.magazine,
+.list-table .list-table-data:hover .data.mal_score,
+.list-table .list-table-data:hover .data.airing-started,
+.list-table .list-table-data:hover .data.airing-finished,
+.list-table .list-table-data:hover .data.season {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Stack order + labels, positioned below the cover image (top:20, height:350 -> bottom 370) */
+.list-table .list-table-data .data.genre {
+  top: 350px !important;
+}
+
+.list-table .list-table-data .data.demographic {
+  top: 372px !important;
+}
+
+.list-table .list-table-data .data.season {
+  top: 394px !important;
+}
+
+.list-table .list-table-data .data.studio {
+  top: 417px !important;
+}
+.list-table .list-table-data .data.mal_score {
+  top: 440px !important;
+}
+
+.list-table .list-table-data .data.magazine {
+  top: 478px !important;
+}
+
+.list-table .list-table-data .data.licensor {
+  top: 500px !important;
+}
+
+.list-table .list-table-data .data.rated {
+  top: 462px !important;
+}
+.list-table .list-table-data .data.airing-started {
+  top: 484px !important;
+}
+.list-table .list-table-data .data.airing-finished {
+  top: 507px !important;
+}
+
+.list-table .list-table-data .data.studio::before {
+  content: "Studio: ";
+  font-weight: bold;
+  color: var(--bg-black6);
+}
+
+.list-table .list-table-data .data.genre::before {
+  content: "Genres: ";
+  font-weight: bold;
+  color: var(--bg-black6);
+}
+
+.list-table .list-table-data .data.demographic::before {
+  content: "Target: ";
+  font-weight: bold;
+  color: var(--bg-black6);
+}
+
+.list-table .list-table-data .data.season::before {
+  content: "Season: ";
+  font-weight: bold;
+  color: var(--bg-black6);
+}
+
+.list-table .list-table-data .data.licensor::before {
+  content: "Licensor: ";
+  font-weight: bold;
+  color: var(--bg-black6);
+}
+
+.list-table .list-table-data .data.rated::before {
+  content: "Rated: ";
+  font-weight: bold;
+  color: var(--bg-black6);
+}
+
+.list-table .list-table-data .data.mal_score::before {
+  content: "MAL Score: ";
+  font-weight: bold;
+  color: var(--bg-black6);
+}
+
+.list-table .list-table-data .data.magazine::before {
+  content: "Magazine: ";
+  font-weight: bold;
+  color: var(--bg-black6);
+}
+
+.list-table .list-table-data .data.airing-started::before {
+  content: "Aired: ";
+  font-weight: bold;
+  color: var(--bg-black6);
+}
+
+.list-table .list-table-data .data.airing-finished::before {
+  content: "Finished: ";
+  font-weight: bold;
+  color: var(--bg-black6);
+}
+
+/* Move tags box further down to sit below the new stack */
+.data.tags div {
+  top: 544px !important;
+}
+
+/* Left-align the status filter menu (was centered via margin:0 auto) */
+.status-menu-container .status-menu {
+  margin: 0 !important;
+}
+
+.status-menu-container .status-menu .status-button {
+  top: -3px;
+  text-align: left !important;
+  font-size: 1.1em !important;
+}
+
+/* Left-align the status section title text (Watching/Completed/etc) */
+.list-unit .list-status-title .text {
+  text-align: left !important;
+  padding-left: 8px !important;
+  display: none !important
+}
+
+/* Force white text/links for the reveal box fields (not clickable anyway,
+   cursor is over the title link while these display) */
+.list-table .list-table-data .data.studio a, .list-table .list-table-data .data.genre a, .list-table .list-table-data .data.licensor a, .list-table .list-table-data .data.demographic a, .list-table .list-table-data .data.magazine a, .list-table .list-table-data .data.season a {
+  color: var(--text-2) !important;
+}
+
+.header-menu, .header-menu * {
+  color: var(--status) !important;
+}
+
+.header-menu .btn-menu {
+  text-align: left !important;
+}
+
+.header-info {
+  text-align: left !important;
+}
+
+.header-info a[href*="/statistics"]::before {
+  content: "\A";
+  white-space: pre;
+}
+
+/* ============================================================
+   DARK THEME: unify visual style, plain font
+   Palette: var(--bg-black) (base bg), var(--bg-black6) (alt row/panel bg),
+   var(--text-2) (plain text), var(--orange) (links/highlights), var(--bg-black6) (borders),
+   var(--orange) (hover/accent)
+   Explicitly does NOT touch: reveal-box info pills, list-menu-float
+   ============================================================ */
+body {
+  background: var(--bg-black) !important;
+  color: var(--text-2);
+}
+
+/* Table backgrounds and borders */
+.list-table .list-table-header .header-title {
+  background: var(--bg-black2) !important;
+  border-color: var(--bg-black3) !important;
+  color: var(--text-3) !important;
+}
+
+.list-item:nth-of-type(2n+1) .list-table-data {
+  background: var(--bg-black2) !important;
+}
+
+.list-item:nth-of-type(2n) .list-table-data {
+  background: var(--bg-black2) !important;
+}
+
+.list-table .list-table-data .data {
+  border-color: transparent !important;
+  color: var(--text-2) !important;
+}
+
+/* row color when table hover */
+.list-table .list-table-data:hover .data:not(.season,.genre,.demographic,.studio,.mal_score,.rated,.airing-started,.airing-finished) {
+  background: var(--bg-black3) !important;
+}
+
+/* Status bar, section titles */
+.status-menu-container {
+  background: var(--bg-black);
+  color: var(--text-2);
+  border: none;
+}
+
+.list-unit .list-status-title {
+  background: var(--bg-black);
+}
+
+.list-unit .list-status-title .text {
+  color: var(--status) !important;
+}
+/* Links: gold highlight, reachable/clickable links only.
+   Uses the same specificity as the dark template's row link rule
+   (.list-table .list-table-data .data a) so ours wins. */
+.list-table .list-table-data .data a, .status-menu-container a, .header-menu a, .list-menu-float a {
+  color: var(--text-3) !important;
+}
+
+.list-table .list-table-data a:not(.edit-disabled):hover, .status-menu-container a:hover, .header-menu a:hover, .list-menu-float a:hover {
+  color: var(--text-3) !important;
+}
+
+/* Explicitly exclude info-block links (Shared/Affinity/Statistics/History)
+   from the red treatment, keep them plain/neutral */
+.header-info a {
+  color: var(--text-3) !important;
+}
+
+/* Fix list-stats panel background (native blue) to match dark theme */
+.list-unit .list-stats {
+  background-color: var(--bg-black3) !important;
+  color: var(--text-3) !important;
+}
+
+#list-container .mal-icon {
+	display: none
+}
+
+/* Footer: update to dark theme palette */
+footer, #footer-block {
+  background: var(--bg-black) !important;
+}
+
+#copyright {
+  color: var(--text-2) !important;
+}
+
+#recaptcha-terms {
+  color: var(--text-2) !important;
+}
+
+#recaptcha-terms a {
+  color: var(--orange) !important;
+}
+
+/* Anime title: chosen text shade, regular weight instead of bold */
+.list-table .list-table-data .data.title .link {
+  color: var(--text-2) !important;
+  font-weight: normal !important;
+  display: inline-block;
+  max-width: calc(100% - 7.6rem);
+  text-overflow: ellipsis;
+  overflow: hidden;
+  vertical-align: top;
+  white-space: nowrap;
+}
+
+/* Fix table column header link color (was template's default blue) */
+.list-table .list-table-header .header-title .link, .list-table .list-table-header .header-title .link.sort {
+  color: var(--text-3) !important;
+}
+
+.list-table .list-table-header .header-title .link.sort:hover {
+  color: var(--status) !important;
+}
+
+.list-unit .list-status-title .text {
+  font-size: 1.1em !important;
+}
+
+/* Fix greyed-out Stats/Filters buttons (template's color:var(--bg-black3) had no
+   !important, but let's guarantee the override regardless of paste order) */
+.list-unit .list-status-title .stats a {
+  color: var(--bg-black6) !important;
+  transition: color .25s ease-in-out;
+}
+
+.list-unit .list-status-title .stats a:hover {
+  color: var(--status) !important;
+}
+
+/* Fix header-title.number ("#") and header-title.tags ("Tags") text color,
+   these have no .link wrapper so our earlier .link-only fix missed them */
+.list-table .list-table-header .header-title.number, .list-table .list-table-header .header-title.tags {
+  color: var(--text-3) !important;
+}
+
+/* Float menu child dropdown: icons/text to the green highlight */
+.list-menu-float .icon-menu, .list-menu-float .icon-menu .text, .list-menu-float .icon-menu svg, .list-menu-float .icon-menu svg * {
+  color: var(--status) !important;
+  fill: var(--status) !important;
+}
+
+.list-table {
+  table-layout: fixed !important;
+  width: 100% !important;
+}
+
+/* The "More" expanded info panel uses a separate legacy nested table
+   (classes td1/borderRBL) that neither the dark template nor our own
+   CSS touched before, so it rendered unstyled/default. Bring it into theme. */
+.list-table .more-content, .list-table .more-content table, .list-table .more-content td {
+  width: 100% !important;
+  max-width: none !important;
+  background: var(--bg-black3) !important;
+  color: var(--text-3) !important;
+  border-color: transparent !important;
+  box-sizing: border-box !important;
+}
+
+.list-table .more-content a {
+  color: var(--status) !important;
+}
+
+.list-table .more-content a:hover {
+  color: var(--status) !important;
+}
+
+/* Prevent layout shift when the vertical scrollbar appears/disappears
+   (e.g. when "More" expands a row and the page becomes taller) */
+html {
+  overflow-y: scroll;
+}
+
+/* Fix "More" row column-count squeeze, following the technique from
+   the "Clarified" template: only convert to block once MAL's JS has
+   already set the row visible (matching its exact inline style value),
+   and convert the nested table's own structure, not .more-content itself */
+.list-table .more-info[style$="table-row;"] {
+  display: block !important;
+  width: calc(100vw - 300px) !important;
+  border: none;
+  margin-top: 0;
+}
+
+.list-table .more-info .more-content {
+  display: block !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.more-info > table, .more-info > table > tbody, .more-info > table > tbody > tr, .more-info > table > tbody > tr > td {
+  display: block;
+}
+
+/* Manga pages render demographic as class="data genre" too (identical
+   to the real genre column), immediately following the real genre cell.
+   Target "a genre cell preceded by another genre cell" structurally,
+   this only ever matches the demographic cell on manga pages. */
+.list-table .list-table-data .data.genre + .data.genre {
+  top: 434px !important;
+}
+
+.list-table .list-table-data .data.genre + .data.genre::before {
+  content: "Demographic: " !important;
+  font-weight: bold;
+  color: var(--status);
+}
+
+/* Fix "List Settings"/"Style Settings" links (template set them white
+   at higher specificity than our general float-menu green rule) */
+.list-menu-float .icon-menu.setting:hover .text .link-list-setting, .list-menu-float .icon-menu.setting:hover .text .link-style-setting {
+  color: var(--status) !important;
+}
+
+/* Line break after "Shared Anime/Manga" link (closest CSS can get;
+   the comma that follows is plain text with no element to break on
+   more precisely, so it moves to the start of the next line) */
+.header-info a[href*="shared"]::after {
+  content: "\A";
+  white-space: pre;
+}
+
+/* Darker tag row colors */
+.list-table-data:has(.data.tags a[href$="tag=mon" i]) {
+  background: oklch(75% 0.2 30 / 30%) !important;
+}
+.list-table-data:has(.data.tags a[href*="tag=tue" i]) {
+  background: oklch(80% 0.2 90 / 30%) !important;
+}
+.list-table-data:has(.data.tags a[href$="tag=wed" i]) {
+  background: oklch(75% 0.2 140 / 30%) !important;
+}
+.list-table-data:has(.data.tags a[href$="tag=thu" i]) {
+  background: oklch(75% 0.2 180 / 30%) !important;
+}
+.list-table-data:has(.data.tags a[href$="tag=fri" i]) {
+  background: oklch(75% 0.2 250 / 30%) !important;
+}
+.list-table-data:has(.data.tags a[href$="tag=sat" i]) {
+  background: oklch(75% 0.2 290 / 30%) !important;
+}
+.list-table-data:has(.data.tags a[href$="tag=sun" i]) {
+  background: oklch(75% 0.2 350 / 30%) !important;
+}
+
+/* Fix "Edit" tag button color (was template's green, mismatched to our theme) */
+.list-table .list-table-data .tags .edit {
+  color: transparent !important;
+}
+
+.list-table .list-table-data .tags .edit:hover {
+  color: var(--bg-black6) !important;
+}
+
+/* status menu button modded*/
+#status-menu .status-button {
+  font-size: 0 !important;
+}
+
+#status-menu .status-button:before {
+  letter-spacing: 0px;
+  font: 18px var(--font) !important;
+  transition: color .25s ease-in-out;
+}
+
+#status-menu .status-button.all_anime:before {
+    content: "\f07b:\\Alll";/*\e3a4*/
+}
+#status-menu .status-button.watching:before,
+#status-menu .status-button.reading:before {
+    content: "\e189:\\Neow";/*\f599*/
+}
+#status-menu .status-button.completed:before {
+    content: "\e64e:\\Done";/*\e389*/
+}
+#status-menu .status-button.onhold:before {
+    content: "\f65d:\\Halt";/*\f11a*/
+}
+#status-menu .status-button.dropped:before {
+    content: "\f65f:\\Nope";/*\e379*/
+}
+#status-menu .status-button.plantowatch:before,
+#status-menu .status-button.plantoread:before {
+    content: "\e186:\\Soon";/*\e39b*/
+}
+
+/* LINE UNDER CAT MENU BUTTONS */
+#status-menu .status-button:after {
+  content: none
+}
+
+/* LINE NEXT TO ANIME ROWS */
+.status-button.all_anime:after {
+  background: var(--accent) !important
+}
+
+.status-button.reading:after,
+.status-button.watching:after,
+.status.reading,
+.status.watching {
+  background: var(--watching) !important
+}
+
+.status-button.completed:after,
+.status.completed {
+  background: var(--completed) !important
+}
+
+.status-button.onhold:after,
+.status.onhold {
+  background: var(--onhold))!important
+}
+
+.status-button.dropped:after,
+.status.dropped {
+  background: var(--dropped) !important
+}
+
+.status-button.plantoread:after,
+.status-button.plantowatch:after,
+.status.plantoread,
+.status.plantowatch {
+  background: var(--plantowatch) !important
+}
+
+.status-menu .status-button.on:nth-of-type(1),
+.status-menu .status-button:nth-of-type(1):hover {
+  color: var(--accent) !important
+}
+
+.status-menu .status-button.on:nth-of-type(2),
+.status-menu .status-button:nth-of-type(2):hover {
+  color: var(--watching) !important
+}
+
+.status-menu .status-button.on:nth-of-type(3),
+.status-menu .status-button:nth-of-type(3):hover {
+  color: var(--completed) !important
+}
+
+.status-menu .status-button.on:nth-of-type(4),
+.status-menu .status-button:nth-of-type(4):hover {
+  color: var(--onhold) !important
+}
+
+.status-menu .status-button.on:nth-of-type(5),
+.status-menu .status-button:nth-of-type(5):hover {
+  color: var(--dropped) !important
+}
+
+.status-menu .status-button.on:nth-of-type(6),
+.status-menu .status-button:nth-of-type(6):hover {
+  color: var(--plantowatch) !important
+}
+
+/* search button*/
+.status-menu-container .search-container {
+    top: 7px;
+    right: 6px
+}
+
+#search-box {
+    border-radius: 15px;
+    border: 2px solid transparent;
+    margin: -2px -4px 0 0 !important;
+    padding-right: 22px;
+    height: 30px !important
+}
+
+#search-box.open {
+    background: var(--bg-black2);
+    border: 2px solid var(--bg-black6);
+    width: 140px !important
+}
+
+#search-box input {
+    background: none;
+    border: none;
+    border-radius: 15px;
+    color: var(--text-3) !important;
+    font: 15px var(--font);
+    outline: none
+}
+
+#search-box.open input {
+    text-indent: 7.5px
+}
+
+.status-menu-container .search-container #search-button {
+    position: absolute;
+    border-radius: 15px;
+    text-align: center;
+    margin-top: 0;
+    height: 26px;
+    width: 26px;
+    top: 0;
+    right: 0
+}
+
+.open~#search-button {
+    pointer-events: none
+}
+
+#search-button i {
+    color: var(--text-3) !important;
+    font-size: 18px;
+    line-height: 30px
+}
+
+.open~#search-button i {
+    font-size: 14px
+}
+
+#search-box:after {
+    content: "";
+    position: absolute;
+    background: none;
+    border: 2px solid transparent;
+    border-radius: 15px;
+    padding-right: 8px;
+    height: 30px;
+    width: 0;
+    top: -2px;
+    right: 0;
+    pointer-events: none;
+    transition: width 3s;
+    opacity: 0
+}
+
+#search-box.open:after {
+    width: 150px;
+    opacity: 1
+}
+
+#search-box,
+#search-box input,
+#search-box:after {
+    transition: 0.3s !important
+}
+
+/* TITLE COLOR ON TABLE HOVER */
+.list-table .list-table-data:hover .data.title .link {
+  color: var(--text-1) !important;
+}
+
+/* airing status */
+.content-status,
+.rewatching,
+.rereading {
+  position: relative;
+  top: 0px;
+  left: 0px;
+  height: 20px;
+  color: transparent !important;
+  background: linear-gradient(
+    to right, 
+    #ffadad, #ffd6a5, #fdffb6, #caffbf, 
+    #9bf6ff, #a0c4ff, #bdb2ff, #ffc6ff);
+  background-size: 400% 400%;
+  animation: gradient-animation 3s ease infinite;
+  background-clip: text !important;
+  font: bold 12px var(--font) !important; 
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-shadow: none;
+  transform: rotate(90deg);
+  transform-origin: left top;
+  pointer-events: none;
+  filter: none;
+}
+
+@keyframes gradient-animation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* the color line next to anime entries */
+body .list-table .list-table-data .data.status, body .list-table .list-table-header .header-title.status
+{display: table-cell !important;
+  width: 0.1px;
+}
+
+/* remove footer and recaptcha */
+#footer-block{
+display: none;
+}
+#gdpr-modal-bottom{
+display: none;
+}
+
+/* ADD NOTES COLOR */
+.notes .edit {
+  display: none
+}
+.notes .text:empty:before {
+  content: "Add notes";
+  color: transparent !important
+}
+.notes .text:empty:hover:before {
+  color: var(--bg-black6) !important
+}
+.notes .text:not(:empty) {
+  color: var(--bg-black6) !important;
+  font-style: italic;
+}
+
+/* EDIT MORE TEXT */
+.add-edit-more {
+  opacity: 0;
+}
+.list-item:hover .add-edit-more {
+  opacity: 1
+}
+
+/* NEW LIST MENU FLOAT */
+:root {
+  --transition-button: 0.11s ease-out;
+}
+
+/* USER MENU */
+.list-menu-float {
+  position: sticky;
+  top: 83px !important;
+  z-index: 100;
+  display: flex;
+  width: 30px;
+  height: 0;
+  margin: 36px 0 -33px;
+  border: none;
+  flex-flow: column nowrap;
+}
+
+.list-menu-float .icon-menu {
+  width: 40px !important;
+  height: 40px;
+  background-color: transparent !important;
+  background-size: 0 !important;
+  background-repeat: no-repeat !important;
+  border-radius: 4px;
+  margin-bottom: 0px;
+  flex: 0 0 auto;
+  transition: all var(--transition-button);
+}
+
+.list-menu-float .icon-menu:hover {
+  width: 170px !important;
+  background-color: transparent !important;
+}
+
+.list-menu-float .icon-menu svg.icon {
+  fill: var(--status) !important;
+}
+
+.list-menu-float .icon-menu.quick-add svg.icon-quick-add,
+.list-menu-float .icon-menu.anime-list svg.icon-anime-list,
+.list-menu-float .icon-menu.manga-list svg.icon-manga-list {
+  top: 10px;
+  width: 18px;
+}
+
+.list-menu-float .icon-menu.history svg.icon-history,
+.list-menu-float .icon-menu.setting svg.icon-setting {
+  top: 10px;
+  left: 12px;
+  width: 17px;
+}
+
+.list-menu-float .icon-menu.export svg.icon-export {
+  top: 9px;
+  left: 12px;
+  width: 16px;
+}
+
+.list-menu-float .icon-menu.logout svg.icon-logout {
+  top: 12px;
+  left: 12px;
+  width: 18px;
+}
+
+.list-menu-float .icon-menu.statistics svg.icon-statistics {
+  top: 10px;
+  left: 12px;
+  width: 16px;
+}
+
+.list-menu-float .icon-menu .text {
+  left: 40px;
+  top: 3px;
+  color: var(--status) !important;
+  font: bold 12px/38px var(--font);
+  text-align: left;
+  opacity: 1;
+  transition: width var(--transition-button);
+}
+
+.list-menu-float .icon-menu:hover .text {
+  left: 40px;
+  width: 130px;
+}
+
+.list-menu-float .icon-menu.setting .text {
+  height: 83px !important;
+  opacity: 1;
+  top: 3px;
+  transition: width var(--transition-button);
+}
+
+.list-menu-float .icon-menu.setting:hover .text {
+  width: 130px;
+  top: 3px
+}
+
+.list-menu-float .icon-menu.setting .text .link-list-setting,
+.list-menu-float .icon-menu.setting .text .link-style-setting {
+  padding: 0 0px;
+  color: var(--status) !important;
+  font: bold 11px/36px var(--font);
+  opacity: 1;
+}
+
+.list-menu-float .icon-menu.setting:hover .text .link-list-setting,
+.list-menu-float .icon-menu.setting:hover .text .link-style-setting {
+  width: 130px;
+  height: 40px;
+  font: bold 11px/36px var(--font);
+}
+
+.list-menu-float .icon-menu.setting:hover .text .link-list-setting {
+  background: none;
+}
+
+.list-menu-float .icon-menu.setting .text .link-style-setting {
+  position: absolute;
+  top: 35px !important;
+  background: transparent;
+  border-radius: 4px;
+}
+
+.list-menu-float .icon-menu.setting:hover .text .link-style-setting {
+  background: transparent;
+  border: none;
+}
+
+.list-menu-float .icon-menu.profile::before {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 5px;
+  display: block;
+  width: 34px;
+  height: 34px;
+  border-radius: 4px;
+  background: transparent no-repeat center top / cover;
+  background-image: inherit;
+}
+
+.list-menu-float .icon-menu.profile::after {
+  content: "Profile";
+  position: absolute;
+  top: 3px;
+  left: 50px;
+  width: 0;
+  height: 40px;
+  overflow: hidden;
+  color: var(--status);
+  font: bold 12px/35px var(--font);
+  text-align: left;
+  transition: width var(--transition-button);
+}
+
+.list-menu-float .icon-menu.profile:hover::after {
+  width: 110px;
+}
+
+/* ADVANCED OPTIONS/FILTERS */
+:root {
+  --arrowUp: url(https://files.catbox.moe/uure2q.svg);
+  --arrowRt: url(https://files.catbox.moe/lqi5fy.svg);
+  --arrowDn: url(https://files.catbox.moe/m9ot24.svg);
+  --arrowLt: url(https://files.catbox.moe/68o5bn.svg)
+}
+body.ownlist #fancybox-overlay {
+  background: hsla(0, 0%, 0%, 70%) !important;
+  opacity: 1 !important;
+  backdrop-filter: blur(3px) !important;
+}
+body #fancybox-close {
+  box-shadow: none
+}
+#fancybox-close {
+  display: none !important
+}
+#fancybox-close:before {
+  content: ""
+}
+#advanced-options:before,
+.mal-modal-content:before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, var(--status),var(--status), var(--bg-black))
+}
+#gdpr-modal-bottom .modal-wrapper {
+  filter: invert(0.9) hue-rotate(180deg);
+  width: 100%;
+  margin: 0
+}
+.dark-mode #gdpr-modal-bottom .modal-wrapper {
+  filter: none
+}
+#gdpr-modal-bottom .text {
+  width: 100%
+}
+#gdpr-modal-bottom a {
+  color: #1d439b
+}
+.dark-mode #gdpr-modal-bottom a {
+  color: #abc4ed
+}
+.mal-modal-backdrop.show {
+  opacity: 0.78 !important
+}
+#list-container~div .mal-modal-content button.btn-close {
+  color: var(--text-2) !important
+}
+#list-container~div .mal-modal-body {
+  background: none !important
+}
+#list-container~div .mal-modal-content {
+  color: var(--text-2) !important;
+  background: var(--bg-black) !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: -1.6px 2.24px 4.48px hsla(0, 0%, 0%, 70%)
+}
+#list-container~div .mal-modal-header,
+#list-container~div .mal-modal-body .broadcasts {
+  border-color: var(--text-2) !important
+}
+#list-container~div .broadcast a:hover {
+  background: var(--bg-black2) !important
+}
+body #fancybox-wrap {
+  left: calc(50% - (190px + 20vw)) !important;
+  width: calc(380px + 40vw) !important;
+  height: auto !important;
+  padding: 0
+}
+#fancybox-outer .fancy-bg {
+  display: none
+}
+body.ownlist #fancybox-outer {
+  padding: 14px 12px 56px;
+  background: var(--bg-black) !important;
+  border-radius: 8px;
+  box-shadow: -1.6px 2.24px 4.48px hsla(0, 0%, 0%, 70%)
+}
+body #fancybox-inner {
+  position: static;
+  width: 100% !important;
+  border-radius: 4px
+}
+html:not(.dark-mode) body #fancybox-frame {
+  filter: sepia(20%) invert(91.5%)
+}
+#fancybox-outer #fancybox-close {
+  top: auto;
+  bottom: 12px;
+  right: 20px
+}
+.ownlist #fancybox-wrap:not([style*="width: 1000px;"]) {
+  left: calc(50% - 160px) !important;
+  width: auto !important;
+  height: auto !important
+}
+#fancybox-wrap:not([style*="width: 1000px;"]) #fancybox-close {
+  display: none !important
+}
+#fancybox-wrap:not([style*="width: 1000px;"]) #fancybox-outer {
+  padding: 12px
+}
+#fancybox-wrap:not([style*="width: 1000px;"]) #fancybox-inner {
+  width: auto !important;
+  height: auto !important
+}
+div[style^="width: 300px;"] {
+  width: 100% !important;
+  height: 100% !important;
+  font: 0/0 var(--font) !important
+}
+div[style^="width: 300px;"]:before {
+  content: 'Finished rewatching?';
+  color: var(--text-2);
+  font-size: 14px;
+  line-height: 1
+}
+div[style^="width: 300px;"] div {
+  display: flex;
+  margin-top: 9px !important
+}
+div[style^="width: 300px;"] input {
+  width: auto;
+  padding: 0 12px;
+  font-family: inherit;
+  cursor: pointer;
+  text-transform: capitalize
+}
+div[style^="width: 300px;"] input+input {
+  margin-left: 9px
+}
+#advanced-options {
+  position: fixed;
+  top: calc(50px + 5vh);
+  --pad: 100vw;
+  width: calc(630px + 0.111 * (var(--pad) - 700px));
+  min-width: 630px;
+  max-width: 730px;
+  height: auto;
+  padding: 0 calc(40px + 0.05 * (var(--pad) - 700px)) 12px;
+  background: var(--bg-black2);
+  box-shadow: -1.6px 2.24px 4.48px hsla(0, 0%, 0%, 70%);
+  border: none;
+  color: var(--text-3);
+  font-family: var(--font)
+}
+@media (min-width: 1600px) {
+  #advanced-options {
+    --pad: 1600px
+  }
+}
+#advanced-options #fancybox-close {
+  display: none !important;
+}
+#advanced-options div {
+  padding: 12px 0
+}
+#advanced-options .advanced-options-header {
+  width: 100%;
+  height: 32px;
+  border: none;
+  font-size: 15px;
+  line-height: 28px;
+  text-align: left;
+  text-transform: uppercase
+}
+#advanced-options .advanced-options-header .description {
+  display: none
+}
+#advanced-options .sort-widget,
+#advanced-options .filter-widget {
+  display: flex;
+  width: 100%;
+  padding: 12px 12px 0 108px
+}
+#advanced-options .sort-widget:last-of-type,
+#advanced-options .filter-widget:last-of-type {
+  padding-bottom: 12px
+}
+#advanced-options .sort-widget .widget-header,
+#advanced-options .filter-widget .widget-header {
+  width: 108px;
+  padding-left: 12px;
+  margin-left: -108px;
+  flex: 0 0 auto;
+  font: 13px/22px var(--font)
+}
+#advanced-options input,
+#advanced-options .sort-widget select,
+#advanced-options .filter-widget select,
+#advanced-options .sort-widget label {
+  height: 24px !important;
+  background: calc(100% - 5px) center/auto no-repeat var(--bg-black3);
+  border: none !important;
+  border-radius: 3px;
+  margin-right: 2%;
+  flex: 0 1 auto;
+  color: var(--text-3);
+  font: 13px/16px var(--font)
+}
+#advanced-options .sort-widget select,
+#advanced-options .filter-widget select {
+  background-image: var(--arrowDn)
+}
+#advanced-options .sort-widget select:disabled,
+#advanced-options .filter-widget select:disabled {
+  background-blend-mode: soft-light;
+  opacity: 0.57
+}
+#advanced-options .filter-widget.title input[type="text"] {
+  width: 80%;
+  height: 18px !important;
+}
+#advanced-options .filter-widget.airing-status select,
+#advanced-options .filter-widget.publishing-status select {
+  width: 60%
+}
+#advanced-options .filter-widget.producer select,
+#advanced-options .filter-widget.magazine select {
+  width: 60%
+}
+#advanced-options .filter-widget.aired-date select.year,
+#advanced-options .filter-widget.published-date select.year {
+  width: 15%;
+  border-radius: 4px 0 0 4px;
+  margin-right: 0
+}
+#advanced-options .filter-widget.aired-date select.month,
+#advanced-options .filter-widget.published-date select.month {
+  width: 12%;
+  border-radius: 0;
+  margin-right: 0
+}
+#advanced-options .filter-widget.aired-date select.day,
+#advanced-options .filter-widget.published-date select.day {
+  width: 12%;
+  border-radius: 0 4px 4px 0
+}
+#advanced-options .filter-widget.aired-date .text,
+#advanced-options .filter-widget.published-date .text {
+  display: none
+}
+#advanced-options .filter-widget.aired-season select.year {
+  width: 20%
+}
+#advanced-options .filter-widget.aired-season select.season {
+  width: 28%
+}
+#advanced-options .sort-widget select {
+  width: 34%
+}
+#advanced-options .sort-widget input[type=radio]+label {
+  width: 12%;
+  padding: 0;
+  background: var(--bg-black3) !important;
+  border: none !important;
+  margin: 0;
+  color: var(--bg-black6) !important;
+  font: 12px/25px var(--font) !important;
+  line-height: 18px
+}
+#advanced-options .sort-widget input[type=radio]+label:first-of-type {
+  border-radius: 3px 0 0 3px;
+}
+#advanced-options .sort-widget input[type=radio]+label:last-of-type {
+  border-radius: 0 3px 3px 0;
+}
+#advanced-options .sort-widget :not(:disabled)+label:hover,
+#advanced-options .sort-widget :not(:disabled):checked+label {
+  background: var(--bg-black4) !important;
+  color: var(--status) !important
+}
+#advanced-options .sort-widget input[type="radio"]:disabled+label {
+  opacity: 0.57;
+  cursor: default
+}
+#advanced-options .advanced-options-button {
+  width: 100%;
+  padding: 12px 0;
+  border: none;
+  font-size: 0;
+  text-align: center
+}
+#advanced-options .advanced-options-button a {
+  margin-right: 9px;
+  box-shadow: none
+}
+/* apply/close button */
+#advanced-options .advanced-options-button a,
+div#tu_settings .tu_buttons > .tu_button {
+	background: var(--bg-black);
+	border-radius: 16px;
+	color: var(--text-2);
+	font: 14px/28px var(--font);
+	text-align: center;
+	padding: 0;
+	height: 28px;
+	width: 86px;
+	cursor: pointer}
+div#tu_settings .tu_buttons > .tu_button {font: 26px/26px var(--font);}
+#advanced-options .advanced-options-button a:hover,
+div#tu_settings .tu_buttons > .tu_button:hover {
+	background: var(--status) !important;
+    color: var(--bg-black)}
+#advanced-options .advanced-options-button {padding: 12px 0 16px 0;}
+#advanced-options .btn-apply:before {content: "\f00c";margin-right: 4px;}
+#advanced-options .btn-clear:before {content: "\f12d";margin-right: 4px;}
